@@ -14,7 +14,7 @@ KaseiCoin is a fully compliant ERC-20 token with additional minting functionalit
 - **ERC-20 Compliance**: Ensures compatibility with the broad Ethereum ecosystem, including wallets and other contracts.
 - **Mintable**: New tokens can be created by designated parties, in this case, the crowdsale contract, during the initial sale period.
 
-#### Contract Code
+#### KaseiCoin.sol
 ```solidity
 pragma solidity ^0.5.0;
 
@@ -33,5 +33,37 @@ contract KaseiCoin is ERC20, ERC20Detailed, ERC20Mintable {
         if (initial_supply > 0) {
             _mint(msg.sender, initial_supply);
         }
+    }
+}
+```
+#### KaseiCoinCrowsale.sol
+```solidity
+// Deployer contract for setting up the KaseiCoin token and its crowdsale.
+contract KaseiCoinCrowdsaleDeployer {
+    // Publicly accessible address of the KaseiCoin token contract.
+    address public kasei_token_address;
+    // Publicly accessible address of the KaseiCoin crowdsale contract.
+    address public kasei_crowdsale_address;
+
+    // Constructor to deploy and setup the KaseiCoin token and crowdsale.
+    constructor(
+        string memory name,            // Name for the KaseiCoin token, e.g., "KaseiCoin"
+        string memory symbol,          // Symbol for the KaseiCoin token, e.g., "KAI"
+        address payable wallet         // Address where collected funds will be sent
+    ) public {
+        // Deploying the KaseiCoin token contract.
+        KaseiCoin token = new KaseiCoin(name, symbol, 0);
+        // Storing the address of the deployed KaseiCoin token contract.
+        kasei_token_address = address(token);
+
+        // Deploying the KaseiCoin crowdsale contract.
+        KaseiCoinCrowdsale crowdsale = new KaseiCoinCrowdsale(1, wallet, token);
+        // Storing the address of the deployed KaseiCoin crowdsale contract.
+        kasei_crowdsale_address = address(crowdsale);
+
+        // Setting the KaseiCoinCrowdsale contract as a minter of the KaseiCoin tokens.
+        token.addMinter(kasei_crowdsale_address);
+        // The deployer renounces its minter role, ensuring no new tokens can be minted by this deployer.
+        token.renounceMinter();
     }
 }
