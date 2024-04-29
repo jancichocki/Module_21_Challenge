@@ -83,7 +83,7 @@ contract KaseiCoinCrowdsaleDeployer {
     }
 }
 ```
-## Conclusion: Integration of KaseiCoin and KaseiCoinCrowdsale
+Integration of KaseiCoin and KaseiCoinCrowdsale
 
 The `KaseiCoin.sol` and `KaseiCoinCrowdsale.sol` contracts collectively provide a robust framework for launching a new cryptocurrency and facilitating its initial distribution through a crowdsale. These contracts are essential for understanding the interplay between token creation and distribution mechanisms on the Ethereum blockchain.
 
