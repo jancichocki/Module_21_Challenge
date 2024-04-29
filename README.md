@@ -15,6 +15,7 @@ KaseiCoin is a fully compliant ERC-20 token with additional minting functionalit
 - **Mintable**: New tokens can be created by designated parties, in this case, the crowdsale contract, during the initial sale period.
 
 #### KaseiCoin.sol
+The KaseiCoin.sol code snippet is a Solidity smart contract that creates an ERC-20 token named KaseiCoin with additional functionality for minting new tokens. This code utilizes OpenZeppelin, a library known for providing secure, community-audited, reusable components for Ethereum smart contract development.
 ```solidity
 pragma solidity ^0.5.0;
 
@@ -44,6 +45,7 @@ contract KaseiCoin is ERC20, ERC20Detailed, ERC20Mintable {
 }
 ```
 #### KaseiCoinCrowsale.sol
+The KaseiCoinCrowdsale.sol contract represents the implementation of a crowdsale for the KaseiCoin, utilizing functionalities from the OpenZeppelin library. This crowdsale contract is designed to manage the entire process of selling KaseiCoin tokens in exchange for Ethereum (ETH), incorporating best practices for security and efficiency.
 ```solidity
 pragma solidity ^0.5.0;
 
