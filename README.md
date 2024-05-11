@@ -113,3 +113,7 @@ The `KaseiCoin.sol` and `KaseiCoinCrowdsale.sol` contracts collectively provide 
   - Understanding these contracts helps grasp the mechanics of decentralized fundraising and financial operations, relevant in the emerging field of decentralized finance (DeFi).
 
 `KaseiCoin.sol` and `KaseiCoinCrowdsale.sol` not only showcase the technical implementation of blockchain technology but also exemplify best practices in the development and deployment of smart contracts for real-world applications.
+
+![KaseiCoin1](KaseiCoin1.jpg "View of KaseiCoin1")
+![KaseiCoin2](KaseiCoin2.jpg "View of KaseiCoin2")
+![KaseiCoin3](KaseiCoin3.jpg "View of KaseiCoin3")
